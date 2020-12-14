@@ -26,6 +26,7 @@ resolvers += "UniHamburg" at "https://git.informatik.uni-hamburg.de/api/v4/group
 
 libraryDependencies ++= Seq(
   "city.sane.wot-servient" % "wot-servient" % "1.3",
+  "city.sane.wot-servient" % "wot-servient-binding-coap" % "1.3",
   "org.scalatest"     %% "scalatest"   % "3.1.0" % Test withSources(),
   "junit"             %  "junit"       % "4.12"  % Test
 )
