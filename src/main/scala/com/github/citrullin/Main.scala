@@ -10,14 +10,13 @@ object Main {
     val wot: Wot = DefaultWot.clientOnly()
 
     try {
-      val thing = wot.fetch(new URI("coap://[fe80::9c7c:12ff:fe70:8f55%tapbr0]/.well-known/wot-thing-description")).get()
-      thing.getProperties().asScala.map{case (key, _) => {
-          println(key)
-        }
-      }
-      val consumedThing: ConsumedThing = wot.consume(thing);
+      val thing = wot.fetch(new URI("coap://[YOUR_IPV6]/.well-known/wot-thing-description")).get()
+      thing.toString().map(print(_))
     } catch {
-      case _ : Throwable => println("Error while fetching the Thing description")
+      case e : Throwable => {
+        println("Error while fetching the Thing description")
+        println(e)
+      }
     }
 
     ()
